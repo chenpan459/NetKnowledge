@@ -1,0 +1,52 @@
+🔗 网络接口（link）
+查看网卡状态
+ip link show
+
+启用/禁用网卡
+ip link set dev eth0 up     # 启用网卡
+ip link set dev eth0 down   # 禁用网卡
+
+修改 MAC 地址（虚拟机测试常用）
+ip link set dev eth0 address 00:11:22:33:44:55
+
+
+
+🌐 IP 地址（addr）
+查看 IP 地址
+ip addr show
+ip a               # 简写
+
+添加/删除 IP 地址
+ip addr add 192.168.1.100/24 dev eth0
+ip addr del 192.168.1.100/24 dev eth0
+
+🛣️ 路由表（route）
+查看路由表
+ip route show
+ip r               # 简写
+
+添加默认网关
+ip route add default via 192.168.1.1 dev eth0
+
+添加静态路由
+ip route add 192.168.2.0/24 via 192.168.1.1 dev eth0
+
+删除路由
+ip route del 192.168.2.0/24
+
+
+
+🤝 邻居（ARP）表（neigh）
+查看 ARP 表
+ip neigh show
+添加静态 ARP
+ip neigh add 192.168.1.100 lladdr 00:11:22:33:44:55 dev eth0
+删除 ARP
+ip neigh del 192.168.1.100 dev eth0
+
+
+
+📦 网络命名空间（netns）
+适用于容器或虚拟网络隔离：
+ip netns add ns1
+ip netns exec ns1 ip addr
