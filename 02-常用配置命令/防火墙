@@ -1,0 +1,19 @@
+
+✅ 一键关闭防火墙（临时 + 永久）
+🔹 1. 停止 firewalld 服务（临时关闭）
+sudo systemctl stop firewalld
+
+
+
+
+🔹 2. 禁用 firewalld 服务（开机不自启）
+sudo systemctl disable firewalld
+
+
+
+🔹 3. 检查状态
+sudo systemctl status firewalld
+
+如果看到：
+Active: inactive (dead)
+说明防火墙已成功关闭。
